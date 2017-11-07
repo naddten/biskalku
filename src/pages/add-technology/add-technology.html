@@ -1,0 +1,48 @@
+<ion-header>
+<ion-navbar>
+            <button ion-button menuToggle *ngIf="hideForm">
+            <ion-icon name="menu"></ion-icon>
+            </button>
+            <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+            </button>
+      <ion-title>{{ pageTitle }}</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+
+      <form [formGroup]="form" >
+                  
+            <ion-card>
+            
+                  <ion-card-content >     
+            <ion-list>
+
+                  <ion-label stacked style="color:#000000; font-size: 15px;">Bike Model </ion-label>   
+                  <ion-input type="text" placeholder="Enter bike model.." formControlName="bikeModel" [(ngModel)]="bikeModel" required="required" style="border:1px solid #ffffff; border-radius: 12px; color:#555C63;"></ion-input>
+
+
+                  <ion-label stacked style="color:#000000; font-size: 15px;">Bike Rate</ion-label>   
+                  <ion-input placeholder="10" formControlName="bikeRate" rows="6" [(ngModel)]="bikeRate" required="required" style="border:1px solid #ffffff; border-radius: 12px; color:#555C63;"></ion-input> 
+                  
+
+                  <ion-label stacked style="color:#000000; font-size: 15px;">Bike Description</ion-label>   
+                  <ion-textarea placeholder="Description..." formControlName="Description" rows="6" [(ngModel)]="Description" required="required" style="border:1px solid #ffffff; border-radius: 12px; color:#555C63;"></ion-textarea>
+  
+                  
+                  <button ion-button block  color="bluenav" (click)="openMenu()" >Upload Image</button>  
+
+
+            </ion-list>
+
+      </ion-card-content>
+</ion-card>
+
+<button ion-button color="bluenav" text-center block [disabled]="!form.valid" (click)="saveEntry()">Save Entry</button>
+
+      </form>
+
+
+</ion-content>
